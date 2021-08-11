@@ -1,0 +1,72 @@
+{
+  "geocodeService": {
+    "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"
+  },
+  "geometryServiceURL":"https://utility.arcgisonline.com/ArcGIS/rest/services/Geometry",
+  "enableRouting": true,
+  "bufferRange": {
+    "minimum": 0,
+    "_default": 0,
+    "maximum": 100
+  },
+  "distanceUnits": "miles",
+  "distanceSettings": {
+    "miles": 9035,
+    "kilometers": 9036,
+    "feet": 9002,
+    "meters": 9001,
+    "yards": 9037,
+    "nauticalMiles": 9030
+  },
+  "maxDistance": "80",
+  "defaultZoomLevel": 13,
+  "tabs": [],
+  "summaryDisplayEnabled": true,
+  "exportFieldsOptionForCSV": "allFields",
+  "coordinateSystems": [
+    {
+      "label":"Nahrwan 1967 UTM Zone 39N", 
+      "wkid":"27039",
+      "xmin":"451282.49", 
+      "xmax":"2502241.83", 
+      "ymin":"1712682.72", 
+      "ymax":"3000000.12",
+      "type":"projected"
+    },
+      {
+        "label":"WGS84", 
+        "wkid":"4326",
+        "xmin":"-180", 
+        "xmax":"180", 
+        "ymin":"-53", 
+        "ymax":"31"
+      }
+      
+    ],
+    "gcsCoordinateType": [      
+     
+      {
+          "label":"Long/Lat (Decimal Degrees)", 
+          "type":"DD"
+      },
+      {
+          "label":"Long/Lat (Degrees Decimal Minutes) ", 
+          "type":"DDM"
+      },
+      {
+          "label":"Long/Lat (Degrees Minutes Seconds)", 
+          "type":"DDS"
+      }
+  
+  ],
+
+  "projectedCoordinateType": [
+    
+    {
+      "label":"X/Y (Meters)", 
+      "type":"X/Y (Meters)"
+    }
+
+  ],
+  "GcsWkid":["4270","4326"]
+}

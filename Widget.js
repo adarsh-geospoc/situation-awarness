@@ -1683,114 +1683,114 @@ define([
 
 
         //need to handle CSS differently when all output options are enabled
-        // var rowDiv = this.allEnabled ? domConstruct.create("div", {
-        //   "class": "displayT pad-top-5"
-        // }, this.saveOptions) : this.saveOptions;
-        // var rowDiv2 = this.allEnabled ? domConstruct.create("div", {
-        //   "class": "displayT pad-top-10"
-        // }, this.saveOptions) : this.saveOptions;
-        // var display = this.allEnabled ? "displayTC" : "displayTR";
+        var rowDiv = this.allEnabled ? domConstruct.create("div", {
+          "class": "displayT pad-top-5"
+        }, this.saveOptions) : this.saveOptions;
+        var rowDiv2 = this.allEnabled ? domConstruct.create("div", {
+          "class": "displayT pad-top-10"
+        }, this.saveOptions) : this.saveOptions;
+        var display = this.allEnabled ? "displayTC" : "displayTR";
 
-        // //Report button
-        // if (this.reportEnabled) {
-        //   this.createReportButtonSpan = domConstruct.create("span", {
-        //     "class": "btn32 " + display
-        //   }, rowDiv);
+        //Report button
+        if (this.reportEnabled) {
+          this.createReportButtonSpan = domConstruct.create("span", {
+            "class": "btn32 " + display
+          }, rowDiv);
 
-        //   this.createReportButton = domConstruct.create("div", {
-        //     "class": 'btn32img',
-        //     "title": this.nls.createReport,
-        //     "aria-label": this.nls.createReport,
-        //     "tabindex": "0",
-        //     "role": "button"
-        //   }, this.createReportButtonSpan);
-        //   domStyle.set(this.createReportButton, "backgroundImage",
-        //     'url(' + this.reportSrc + ')');
-        //   this.own(on(this.createReportButton, "click", lang.hitch(this, this._createReport)));
-        //   this.own(on(this.createReportButton, "keydown", lang.hitch(this, function (evt) {
-        //     if (evt.keyCode === keys.ENTER || evt.keyCode === keys.SPACE) {
-        //       this._createReport();
-        //     }
-        //   })));
-        // }
+          this.createReportButton = domConstruct.create("div", {
+            "class": 'btn32img',
+            "title": this.nls.createReport,
+            "aria-label": this.nls.createReport,
+            "tabindex": "0",
+            "role": "button"
+          }, this.createReportButtonSpan);
+          domStyle.set(this.createReportButton, "backgroundImage",
+            'url(' + this.reportSrc + ')');
+          this.own(on(this.createReportButton, "click", lang.hitch(this, this._createReport)));
+          this.own(on(this.createReportButton, "keydown", lang.hitch(this, function (evt) {
+            if (evt.keyCode === keys.ENTER || evt.keyCode === keys.SPACE) {
+              this._createReport();
+            }
+          })));
+        }
 
         //Save button
-        // if (this.saveEnabled) {
-        //   this.saveButtonSpan = domConstruct.create("span", {
-        //     "class": "btn32 " + display
-        //   }, rowDiv);
-        //   this.validateSavePrivileges().then(lang.hitch(this, function (enable) {
-        //     this.userCanSave = enable;
-        //     this.saveButton = domConstruct.create("div", {
-        //       "class": enable ? 'btn32img' : 'btn32img btnDisabled',
-        //       "title": enable ? this.nls.saveIncident : this.nls.user_credentials,
-        //       "aria-label": enable ? this.nls.saveIncident : this.nls.user_credentials,
-        //       "tabindex": "0",
-        //       "role": "button"
-        //     }, this.saveButtonSpan);
-        //     domStyle.set(this.saveButton, "backgroundImage",
-        //       'url(' + this.saveSrc + ')');
-        //     if (enable) {
-        //       this.own(on(this.saveButton, "click", lang.hitch(this, this._saveIncident)));
-        //       this.own(on(this.saveButton, "keydown", lang.hitch(this, function (evt) {
-        //         if (evt.keyCode === keys.ENTER || evt.keyCode === keys.SPACE) {
-        //           this._saveIncident();
-        //         }
-        //       })));
-        //     }
-        //   }), function (err) {
-        //     console.log(err);
-        //   });
-        // }
+        if (this.saveEnabled) {
+          this.saveButtonSpan = domConstruct.create("span", {
+            "class": "btn32 " + display
+          }, rowDiv);
+          this.validateSavePrivileges().then(lang.hitch(this, function (enable) {
+            this.userCanSave = enable;
+            this.saveButton = domConstruct.create("div", {
+              "class": enable ? 'btn32img' : 'btn32img btnDisabled',
+              "title": enable ? this.nls.saveIncident : this.nls.user_credentials,
+              "aria-label": enable ? this.nls.saveIncident : this.nls.user_credentials,
+              "tabindex": "0",
+              "role": "button"
+            }, this.saveButtonSpan);
+            domStyle.set(this.saveButton, "backgroundImage",
+              'url(' + this.saveSrc + ')');
+            if (enable) {
+              this.own(on(this.saveButton, "click", lang.hitch(this, this._saveIncident)));
+              this.own(on(this.saveButton, "keydown", lang.hitch(this, function (evt) {
+                if (evt.keyCode === keys.ENTER || evt.keyCode === keys.SPACE) {
+                  this._saveIncident();
+                }
+              })));
+            }
+          }), function (err) {
+            console.log(err);
+          });
+        }
 
-        // //Download All button
-        // var downloadAllButonSpan = domConstruct.create("span", {
-        //   "class": "btn32 " + display
-        // }, rowDiv2);
-        // this.downloadAllButon = domConstruct.create("div", {
-        //   "class": 'btn32img',
-        //   "title": this.nls.downloadAll,
-        //   "aria-label": this.nls.downloadAll,
-        //   "tabindex": "0",
-        //   "role": "button"
-        // }, downloadAllButonSpan);
-        // domStyle.set(this.downloadAllButon, "backgroundImage",
-        //   'url(' + this.downloadAllSrc + ')');
-        // this.own(on(this.downloadAllButon, "click", lang.hitch(this, this._downloadAll)));
-        // this.own(on(this.downloadAllButon, "keydown", lang.hitch(this, function (evt) {
-        //   if (evt.keyCode === keys.ENTER || evt.keyCode === keys.SPACE) {
-        //     this._downloadAll();
-        //   }
-        // })));
-        // //Snapshot button
-        // if (this.snapshotEnabled) {
-        //   this.createSnapshotButtonSpan = domConstruct.create("span", {
-        //     "class": "btn32 " + display
-        //   }, rowDiv2);
-        //   this.validateSnapshotPrivileges().then(lang.hitch(this, function (enable) {
-        //     this.userCanSnapshot = enable;
-        //     this.createSnapshotButton = domConstruct.create("div", {
-        //       "class": enable ? 'btn32img' : 'btn32img btnDisabled',
-        //       "title": enable ? this.nls.createSnapshot : this.nls.user_credentials,
-        //       "aria-label": enable ? this.nls.createSnapshot : this.nls.user_credentials,
-        //       "tabindex": "0",
-        //       "role": "button"
-        //     }, this.createSnapshotButtonSpan);
-        //     domStyle.set(this.createSnapshotButton, "backgroundImage",
-        //       'url(' + this.snapshotSrc + ')');
-        //     if (enable) {
-        //       this.own(on(this.createSnapshotButton, "click", lang.hitch(this,
-        //         this._createSnapshot)));
-        //       this.own(on(this.createSnapshotButton, "keydown", lang.hitch(this, function (evt) {
-        //         if (evt.keyCode === keys.ENTER || evt.keyCode === keys.SPACE) {
-        //           this._createSnapshot();
-        //         }
-        //       })));
-        //     }
-        //   }), function (err) {
-        //     console.log(err);
-        //   });
-        // }
+        //Download All button
+        var downloadAllButonSpan = domConstruct.create("span", {
+          "class": "btn32 " + display
+        }, rowDiv2);
+        this.downloadAllButon = domConstruct.create("div", {
+          "class": 'btn32img',
+          "title": this.nls.downloadAll,
+          "aria-label": this.nls.downloadAll,
+          "tabindex": "0",
+          "role": "button"
+        }, downloadAllButonSpan);
+        domStyle.set(this.downloadAllButon, "backgroundImage",
+          'url(' + this.downloadAllSrc + ')');
+        this.own(on(this.downloadAllButon, "click", lang.hitch(this, this._downloadAll)));
+        this.own(on(this.downloadAllButon, "keydown", lang.hitch(this, function (evt) {
+          if (evt.keyCode === keys.ENTER || evt.keyCode === keys.SPACE) {
+            this._downloadAll();
+          }
+        })));
+        //Snapshot button
+        if (this.snapshotEnabled) {
+          this.createSnapshotButtonSpan = domConstruct.create("span", {
+            "class": "btn32 " + display
+          }, rowDiv2);
+          this.validateSnapshotPrivileges().then(lang.hitch(this, function (enable) {
+            this.userCanSnapshot = enable;
+            this.createSnapshotButton = domConstruct.create("div", {
+              "class": enable ? 'btn32img' : 'btn32img btnDisabled',
+              "title": enable ? this.nls.createSnapshot : this.nls.user_credentials,
+              "aria-label": enable ? this.nls.createSnapshot : this.nls.user_credentials,
+              "tabindex": "0",
+              "role": "button"
+            }, this.createSnapshotButtonSpan);
+            domStyle.set(this.createSnapshotButton, "backgroundImage",
+              'url(' + this.snapshotSrc + ')');
+            if (enable) {
+              this.own(on(this.createSnapshotButton, "click", lang.hitch(this,
+                this._createSnapshot)));
+              this.own(on(this.createSnapshotButton, "keydown", lang.hitch(this, function (evt) {
+                if (evt.keyCode === keys.ENTER || evt.keyCode === keys.SPACE) {
+                  this._createSnapshot();
+                }
+              })));
+            }
+          }), function (err) {
+            console.log(err);
+          });
+        }
 
         //Draw buttons
         var btnTitles = {
@@ -2497,11 +2497,13 @@ define([
             skipUpdate = true;
             this._getIncidentAddress(e.geometry);
           }
-          console.log(e)
-          this._projectTONahrwan(e)
+         
 
           editEnabled = type === "polyline" ? this.isLineEditable : type === "polygon" ?
             this.isPolyEditable : this.isPointEditable;
+
+            console.log(e)
+            this._projectTONahrwan(e)
 
           //only geoms from user draw operations should be updated
           // those that are selected from features in the map should not be modified.
